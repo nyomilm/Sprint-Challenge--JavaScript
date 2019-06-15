@@ -93,12 +93,22 @@ Name email@example.com
 
 Log the result of your new array. */
 const contactInfo = [];
+for (let i = 0; i < graduates.length; i++) {
+  contactInfo.push(`${graduates[i].first_name} ${graduates[i].email}`);
+}
+
 
 console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 const uni = [];
+for (let i = 0; i < graduates.length; i++) {
+  if(graduates[i].university.indexOf('Uni')> -1 ){
+    uni.push(graduates[i].university);
+  } 
+}
+
 console.log(uni);
 
 
@@ -124,6 +134,9 @@ The zoo wants to display both the scientific name and the animal name in front o
 
 */
 const animalNames = [];
+for (let i = 0; i < zooAnimals.length; i++) {
+  animalNames.push(`Name:${zooAnimals[i].animal_name} Scientific:${zooAnimals[i].scientific_name}`);
+}
 console.log(animalNames);
 
 /* Request 2: .map()    
@@ -133,6 +146,9 @@ The zoos need a list of all their animal's names (names only, not scientific) co
 */
 
 const lowerCase = [];
+zooAnimals.map(function(item){
+  return lowerCase.push(item.animal_name.toLowerCase());
+});
 console.log(lowerCase); 
 
 /* Request 3: .filter() 
@@ -141,14 +157,36 @@ The zoos are concenred about animals with a lower population count. Find out whi
 
 */
 const lowerPopulation = [];
-console.log(lowerPopulation);
+
+for (let i = 0; i < population.length; i++){
+  if (population[i] < 5) {lowerPopulation.push(population[i]);
+}
+else {
+  //do nothing
+}
+}
+console.log(lowerPopulation.length);
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = 0;
+let populationTotal = [];
+let num = [];
+
+for (let i = 0; i < zooAnimals.length; i++) {
+  console.log(zooAnimals[i].population);
+  num.push(zooAnimals[i].population);
+}
+console.log(num);
+
+function getSum(total, numb){
+  return total + numb
+}
+
+num.reduce(getSum);
+populationTotal.push(num);
 console.log(populationTotal);
 
 
