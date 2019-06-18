@@ -145,26 +145,23 @@ The zoos need a list of all their animal's names (names only, not scientific) co
 
 */
 
-const lowerCase = [];
-zooAnimals.map(function(item){
-  return lowerCase.push(item.animal_name.toLowerCase());
+//const lowerCase = [];
+const lowerCase = zooAnimals.map((name) => {
+  return name.animal_name.toLowerCase();
 });
 console.log(lowerCase); 
+
+
 
 /* Request 3: .filter() 
 
 The zoos are concenred about animals with a lower population count. Find out which animals have a population less than 5.
 
 */
-const lowerPopulation = [];
+const lowerPopulation = zooAnimals.filter(function(animals){
+  return animals.population < 5;
+});
 
-for (let i = 0; i < population.length; i++){
-  if (population[i] < 5) {lowerPopulation.push(population[i]);
-}
-else {
-  //do nothing
-}
-}
 console.log(lowerPopulation.length);
 
 /* Request 4: .reduce() 
